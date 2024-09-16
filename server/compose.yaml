@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  database:
+    container_name: cloud-database
+    image: postgres
+    environment:
+      - POSTGRES_USER=${TYPEORM_USERNAME}
+      - POSTGRES_PASSWORD=${TYPEORM_PASSWORD}
+      - POSTGRES_DB=${TYPEORM_DATABASE}
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    ports:
+      - ${TYPEORM_PORT}:${TYPEORM_PORT}
+    restart: always
+  
+  database-admin:
+    container_name: cloud-database-admin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+       - ./database-admin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    restart: always
