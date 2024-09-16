@@ -1,0 +1,31 @@
+---
+root: true
+
+parser: "@typescript-eslint/parser"
+extends:
+  - eslint:recommended
+  - plugin:prettier/recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:@typescript-eslint/eslint-recommended
+
+plugins:
+  - import
+  - "@typescript-eslint"
+
+env:
+  node: true
+  jest: true
+
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: module
+
+rules:
+  import/first: error
+
+  no-console: warn
+  no-eval: error
+
+  prettier/prettier:
+    - error
+    - endOfLine: auto
