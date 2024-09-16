@@ -13,10 +13,10 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint src",
-    "typeorm": "ts-node ./node_modules/typeorm/cli",
     "migration:create": "npm run typeorm -- migration:create ./migrations/auto",
     "migration:run": "npm run typeorm migration:run -- -d ./typeorm.config.ts",
-    "migration:revert": "npm run typeorm migration:revert -- -d ./typeorm.config.ts"
+    "migration:revert": "npm run typeorm migration:revert -- -d ./typeorm.config.ts",
+    "typeorm": "ts-node ./node_modules/typeorm/cli"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
