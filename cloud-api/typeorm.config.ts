@@ -1,6 +1,8 @@
 import { config } from "dotenv";
 import { DataSource } from "typeorm";
 
+import { UserEntity } from "./src/users/entities/user.entity";
+
 config();
 
 export default new DataSource({
@@ -11,5 +13,5 @@ export default new DataSource({
   username: process.env.TYPEORM_USERNAME,
   password: process.env.TYPEORM_PASSWORD,
   migrations: ["migrations/**"],
-  entities: [],
+  entities: [UserEntity],
 });

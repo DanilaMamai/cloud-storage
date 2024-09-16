@@ -7,13 +7,14 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "format": "prettier --write src",
+    "format": "prettier --write src migrations",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint src",
+    "lint": "eslint src migrations",
     "migration:create": "npm run typeorm -- migration:create ./migrations/auto",
+    "migration:generate": "npm run typeorm migration:generate -- -d ./typeorm.config.ts ./migrations/auto",
     "migration:run": "npm run typeorm migration:run -- -d ./typeorm.config.ts",
     "migration:revert": "npm run typeorm migration:revert -- -d ./typeorm.config.ts",
     "typeorm": "ts-node ./node_modules/typeorm/cli"
@@ -21,6 +22,7 @@
   "dependencies": {
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.2",
     "dotenv": "^16.4.5",
