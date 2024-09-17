@@ -10,15 +10,9 @@ export class UserEntity {
   @Column()
   email: string;
 
-  @Column()
-  firstName: string;
-
-  @Column()
-  surName: string;
-
-  @Column()
-  middleName?: string;
-
   @OneToMany(() => FileEntity, (file) => file.user)
   files: Array<FileEntity>;
+
+  @Column()
+  login: string;
 }

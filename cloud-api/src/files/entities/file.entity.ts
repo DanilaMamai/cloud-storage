@@ -13,17 +13,17 @@ export class FileEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @DeleteDateColumn()
+  deletedAt: Date;
+
   @Column()
   fileName: string;
 
   @Column()
-  size: number;
-
-  @Column()
   mimetype: string;
 
-  @DeleteDateColumn()
-  deletedAt: Date;
+  @Column()
+  size: number;
 
   @ManyToOne(() => UserEntity, (user) => user.files)
   user: UserEntity;
