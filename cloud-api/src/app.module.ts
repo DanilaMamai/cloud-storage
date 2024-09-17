@@ -4,6 +4,8 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
+import { FilesModule } from "./files/files.module";
+import { FileEntity } from "./files/entities/file.entity";
 import { UserEntity } from "./users/entities/user.entity";
 import { UsersModule } from "./users/users.module";
 
@@ -18,10 +20,11 @@ config();
       database: process.env.TYPEORM_DATABASE,
       username: process.env.TYPEORM_USERNAME,
       password: process.env.TYPEORM_PASSWORD,
-      entities: [UserEntity],
+      entities: [FileEntity, UserEntity],
       synchronize: false,
     }),
     UsersModule,
+    FilesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
