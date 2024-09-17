@@ -2,8 +2,6 @@ import { config } from "dotenv";
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
-import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
 import { FilesModule } from "./files/files.module";
 import { FileEntity } from "./files/entities/file.entity";
 import { UserEntity } from "./users/entities/user.entity";
@@ -26,7 +24,7 @@ config();
     UsersModule,
     FilesModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
