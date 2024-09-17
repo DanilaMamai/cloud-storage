@@ -1,11 +1,21 @@
-import { Controller } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from "@nestjs/common";
 
+import { CreateUserDto } from "./dto/create-user.dto";
+import { UpdateUserDto } from "./dto/update-user.dto";
 import { UsersService } from "./users.service";
 
 @Controller("users")
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
-  /* TODO
+
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
@@ -30,5 +40,4 @@ export class UsersController {
   remove(@Param("id") id: string) {
     return this.usersService.remove(+id);
   }
-  */
 }
