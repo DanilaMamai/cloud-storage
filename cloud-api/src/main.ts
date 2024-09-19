@@ -1,10 +1,15 @@
+import * as express from "express";
+
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { join } from "path";
 import { NestFactory } from "@nestjs/core";
 
 import { AppModule } from "./app.module";
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.use("/uploads", express.static(join(__dirname, "../../uploads")));
 
   const config = new DocumentBuilder()
     .setTitle("Cloud API")
