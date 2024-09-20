@@ -15,4 +15,8 @@ export class FilesService {
   create(createFileDto: CreateFileDto) {
     return this.filesRepository.insert(createFileDto);
   }
+
+  async findAll() {
+    return this.filesRepository.find();
+  }
 }
