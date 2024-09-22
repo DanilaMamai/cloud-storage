@@ -2,6 +2,7 @@ import { config } from "dotenv";
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
+import { AuthModule } from "./auth/auth.module";
 import { FilesModule } from "./files/files.module";
 import { FileEntity } from "./files/entities/file.entity";
 import { UserEntity } from "./users/entities/user.entity";
@@ -23,6 +24,7 @@ config();
     }),
     UsersModule,
     FilesModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
