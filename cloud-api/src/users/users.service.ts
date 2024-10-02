@@ -14,7 +14,7 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    return this.usersRepository.insert(createUserDto);
+    return this.usersRepository.save(createUserDto);
   }
 
   async findAll() {
