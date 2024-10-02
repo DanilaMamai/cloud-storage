@@ -1,4 +1,4 @@
-import { ApiBody, ApiConsumes, ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from "@nestjs/swagger";
 import {
   Controller,
   Get,
@@ -6,15 +6,19 @@ import {
   ParseFilePipe,
   Post,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 
+import { AuthGuard } from "../../src/auth/auth.guards";
 import { FilesService } from "./files.service";
 import { fileStorage } from "./files.storage";
 
+@ApiBearerAuth()
 @ApiTags("files")
 @Controller("files")
+@UseGuards(AuthGuard)
 export class FilesController {
   constructor(private readonly filesService: FilesService) {}
 
