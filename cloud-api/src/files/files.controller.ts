@@ -11,7 +11,7 @@ import {
 import { FileInterceptor } from "@nestjs/platform-express";
 
 import { FilesService } from "./files.service";
-import { fileStorage } from "./storage";
+import { fileStorage } from "./files.storage";
 
 @ApiTags("files")
 @Controller("files")
