@@ -19,7 +19,12 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
 
-  SwaggerModule.setup("swagger", app, document);
+  SwaggerModule.setup("swagger", app, document, {
+    swaggerOptions: {
+      tagsSorter: "alpha",
+      operationsSorter: "alpha",
+    },
+  });
 
   await app.listen(3000);
 }
