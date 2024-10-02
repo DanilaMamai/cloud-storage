@@ -7,14 +7,11 @@ export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  email: string;
-
   @OneToMany(() => FileEntity, (file) => file.user)
   files: Array<FileEntity>;
 
   @Column()
-  login: string;
+  username: string;
 
   @Column()
   password: string;

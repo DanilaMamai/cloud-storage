@@ -12,6 +12,6 @@ export class AuthController {
   @Post()
   @ApiBody({ type: LoginDto })
   login(@Body() loginDto: LoginDto) {
-    return this.authService.signIn(loginDto.email, loginDto.password);
+    return this.authService.signIn(loginDto.username, loginDto.password);
   }
 }
